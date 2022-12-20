@@ -1,0 +1,106 @@
+.header-row {
+    display: grid;
+    justify-content: space-between;
+    background-color: aqua;
+    grid-template-columns: 30px 600px;
+    width: 97%;
+    height: 160px;
+    min-width: 760px;
+    padding-left: 3%;
+    overflow: hidden;
+}
+
+.content-row {
+    width: 100%;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 15% 20% 51%;
+    padding: 0;
+}
+
+.footer-row {
+    display: grid;
+    justify-content: space-between;
+    background-color: aqua;
+    grid-template-columns: 30px 100px;
+
+    width: 97%;
+    height: 160px;
+    min-width: 760px;
+    padding-left: 3%;
+}
+
+#header-text {
+    margin-right: 3%;
+    width: 45%;
+    text-align: center;
+    padding: 8px;
+    min-width: 490px;
+}
+
+#moto-1 {
+    margin-left: 3%;
+    margin-top: 45px;
+    height: 21px;
+}
+
+#moto-2 {
+    margin-top: 45px;
+    height: 21px;
+}
+
+#colOne {
+    min-width: 70px;
+    background-color: #999999;
+    height: 800px;
+    padding: 0 1%;
+}
+
+#colTwo {
+    min-width: 200px;
+    padding: 0 1%;
+    background-color: #999999;
+    height: 800px;
+}
+
+#colThree {
+    min-width: 50px;
+    float: right;
+    height: 800px;
+}
+
+#upper-subCol {
+    padding: 10px 1%;
+    height: 280px;
+    background-color: #999999;
+}
+
+.sub-content-row {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 43% 43%;
+    padding: 0;
+    gap: 0;
+    width: 100%;
+}
+
+#left-subCol {
+    padding: 0 1%;
+    margin-right: 5%;
+    height: 500px;
+    background-color: #999999;
+}
+
+#right-subCol {
+    height: 500px;
+    background-color: #999999;
+    padding: 0 1%;
+}
+
+#footer-text {
+    width: 45%;
+    text-align: center;
+    padding: 8px;
+    min-width: 490px;
+    margin-left: 3%;
+}
