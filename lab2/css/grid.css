@@ -16,6 +16,7 @@
     justify-content: space-between;
     grid-template-columns: 15% 20% 51%;
     padding: 0;
+    min-width: 1000px;
 }
 
 .footer-row {
