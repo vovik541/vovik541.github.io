@@ -1,0 +1,14 @@
+@media screen and (max-width: 720px) {
+    .header-row {
+        display: flex;
+        flex-direction: column;
+        height: 280px;
+    }
+    #header-text {
+        margin-right: 5%;
+        margin-left: 5%;
+        width: 90%;
+
+    }
+
+}
