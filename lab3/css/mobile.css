@@ -9,7 +9,7 @@
         justify-content: normal;
         margin: 2%;
         width: 90%;
-        min-width: 630px;
+        min-width: 600px;
         padding: 0;
         height: 120px;
     }
@@ -27,6 +27,7 @@
     .content-row {
         display: flex;
         flex-flow: row wrap;
+        /*justify-content: space-evenly;*/
     }
     .line-break {
         display: block;
@@ -34,11 +35,11 @@
     }
     #colTwo {
         width: 70%;
-        min-width: 300px;
+        min-width: 180px;
         height: 600px;
     }
     #colOne {
-        min-width: 110px;
+        min-width: 90px;
         height: 600px;
     }
     #colThree {
@@ -59,14 +60,27 @@
         padding: 0;
         height: 120px;
     }
+    ul {
+        padding-left: 18px;
+    }
 }
 @media screen and (max-width: 429px) {
     #colTwo {
         width: 100%;
         height: 500px;
+        min-width: 623px;
     }
     #colOne {
         width: 100%;
         height: 70px;
+        min-width: 623px;
+    }
+    #footer-text {
+        justify-content: normal;
+        margin: 2%;
+        width: 90%;
+        min-width: 500px;
+        padding: 0;
+        height: 120px;
     }
 }
