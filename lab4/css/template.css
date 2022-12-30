@@ -143,3 +143,42 @@ a:hover {
     color: dimgray;
     font-weight: bold;
 }
+
+@media screen and (max-width: 960px) {
+
+    .flex-container {
+        flex-flow: column;
+        align-items: center;
+        min-width: 450px;
+        max-width: 800px;
+    }
+
+    .item-1 {
+        display: none;
+    }
+
+    .item-2 {
+        height: 400px;
+
+        padding-left: 30px;
+        padding-right: 30px;
+
+        width: 400px;
+        padding-top: 0px;
+    }
+
+    .item-5 {
+        display: none;
+    }
+
+    .item-active {
+        order: 0;
+        position: relative;
+    }
+
+    .item-9 {
+        width: 400px;
+        height: 500px;
+    }
+
+}
