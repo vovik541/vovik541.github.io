@@ -1,10 +1,75 @@
-#container {
-    width: 1500px;
-    height: 100px;
+.flex-container {
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    flex-flow: row wrap;
+    gap: 40px;
+    min-width: 1500px;
+    max-width: 1500px;
     margin: auto;
 }
 
-#info-bucket, #read-more-bucket {
+.item {
+    color: #fff;
+    display: block;
+    width: 460px;
+    height: 400px;
+}
+
+.item-active {
+    order: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.item-1 {
+
+}
+
+.item-2 {
+    background-color: darkturquoise;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 643px;
+    width: 400px;
+    padding-top: 200px;
+}
+
+.item-3 {
+
+}
+
+.item-4 {
+
+}
+
+.item-5 {
+
+}
+
+.item-6 {
+    border: 2px solid darkturquoise;
+    color: darkturquoise;
+    align-content: center;
+}
+
+.item-7 {
+
+}
+
+.item-8 {
+
+}
+
+.item-9 {
+    background-color: #F86942;
+    height: 340px;
+    width: 900px;
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
@@ -14,15 +79,6 @@
 
 #info-bucket {
     background-color: darkturquoise;
-}
-
-#middle-bucket {
-    border: 2px solid darkturquoise;
-    color: darkturquoise;
-}
-
-#read-more-bucket {
-    background-color: #F86942;
 }
 
 #main-logo, #additional-logo {
@@ -35,6 +91,7 @@
     margin-left: 5%;
     margin-right: 5%;
     padding: 10px;
+    margin-top: 80px;
     text-align: center;
 }
 
@@ -72,8 +129,8 @@ a {
 }
 
 .third-row-image {
-    width: 500px;
-    height: 430px;
+    width: 460px;
+    height: 400px;
 }
 
 
