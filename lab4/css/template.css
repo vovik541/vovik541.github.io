@@ -1,0 +1,88 @@
+#container {
+    width: 1500px;
+    height: 100px;
+    margin: auto;
+}
+
+#info-bucket, #read-more-bucket {
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    color: white;
+    padding: 30px;
+}
+
+#info-bucket {
+    background-color: darkturquoise;
+}
+
+#middle-bucket {
+    border: 2px solid darkturquoise;
+    color: darkturquoise;
+}
+
+#read-more-bucket {
+    background-color: #F86942;
+}
+
+#main-logo, #additional-logo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+#main-logo {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
+    text-align: center;
+}
+
+#additional-logo {
+
+}
+
+#more-info-header {
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    position: relative;
+    float: top;
+    padding-bottom: 25px;
+    margin-top: 0;
+}
+
+#read-more-text {
+    padding-bottom: 45px;
+}
+
+a {
+    background-color: white;
+    color: #999999;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: normal;
+    font-size: 25px;
+}
+
+.first-second-row-images {
+    width: 460px;
+    height: 400px;
+}
+
+.third-row-image {
+    width: 500px;
+    height: 430px;
+}
+
+
+table {
+    border-spacing: 30px;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: dimgray;
+    font-weight: bold;
+}
