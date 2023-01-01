@@ -27,9 +27,14 @@
 
     <div class="content-row">
         <div id="colOne">
-            <input id="swapBlocks" type="button" value="1. Swap text for block 1 and 6" onclick="swapBlocks();" />
-            <input id="1" type="button" value="2. Count circle square" onclick="countCircleSquare();" />
-            <input id="2" type="button" value="clickme" onclick="doFunction();" />
+            <ul>
+                <li>
+                    <input id="swapBlocks" type="button" value="1. Swap text for block 1 and 6" onclick="swapBlocks();" />
+                </li>
+                <li>
+                    <input type="button" value="2. Count circle square" onclick="countCircleSquare();" />
+                </li>
+            </ul>
         </div>
         <div id="colTwo">
             <img src="images/workplace.png" alt="Workplace" usemap="#workmap" width="200" height="200"
@@ -77,6 +82,7 @@
             <div id="sub-content-row">
                 <div id="left-subCol">
                     <form name="myform" id="formId" action="javascript:handleNumber(numberInput.value)">
+                        <label for="numberInput">Input number:</label><br>
                         <input type="text" name="numberInput" id="numberInput" maxlength="10">
                         <input name="Submit"  type="submit" value="Submit"/>
                     </form>
