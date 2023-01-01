@@ -37,10 +37,10 @@
     padding: 8px;
 }
 
-/*#mid-container{*/
-/*    width: 45%;*/
-/*    flex-wrap: wrap;*/
-/*}*/
+#colorInput{
+    width: 100px;
+    height: 100px;
+}
 
 #moto-1 {
     margin-left: 3%;

@@ -18,8 +18,18 @@
 //         }
 //     });
 // };
+function selectEvent() {
+    let colorElement = document.getElementById("colorInput");
+    document.getElementById("right-subCol").style = "background-color: " + colorElement.value + ";";
+    localStorage.setItem("6boxColor", colorElement.value);
+}
 
 window.onload = (event) => {
+
+    let sixthBoxColor = localStorage.getItem("6boxColor") ;
+    if (sixthBoxColor){
+        document.getElementById("right-subCol").style = "background-color: " + sixthBoxColor + ";";
+    }
 
     let temp = getCookie("minNumber");
     if (temp) {
