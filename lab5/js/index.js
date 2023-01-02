@@ -125,6 +125,7 @@ window.onload = (event) => {
     // localStorage.setItem("table1Size", 2);
     recreateTable("table1");
     recreateTable("table2");
+    stopTable("table2", "footer-text");
 
     let sixthBoxColor = localStorage.getItem("6boxColor");
     if (sixthBoxColor) {
