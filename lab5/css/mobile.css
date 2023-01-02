@@ -83,4 +83,12 @@
         padding: 0;
         height: 120px;
     }
+
+    #table1-box{
+        display: block;
+    }
+
+    #header-text{
+        display: none;
+    }
 }
