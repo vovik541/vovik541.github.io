@@ -1,5 +1,9 @@
+let accordions;
+
 window.onload = (event) => {
     addListenersToAccordions();
+    accordions = loadAccordions();
+    addToDocument(accordions);
 };
 
 function addListenersToAccordions() {
@@ -19,13 +23,11 @@ function addListenersToAccordions() {
     }
 }
 
-const accordions = {
-    accordion: []
-};
+
 function createAccordionCell(numberInput, content, header) {
 
-    if (numberInput >= accordions.accordion.length) {
-        accordions.accordion[accordions.accordion.length] = {
+    if (numberInput >= accordions.length) {
+        accordions.accordion[accordions.length] = {
             id: 0,
             header: header,
             content: content
@@ -42,38 +44,67 @@ function createAccordionCell(numberInput, content, header) {
             numberInput = 1;
         }
 
-        let length = accordions.accordion.length;
+        let length = accordions.length;
         for (let i = numberInput - 1; i <= length; i++) {
-            accordion = accordions.accordion[i];
-            accordions.accordion[i] = temp;
-            accordions.accordion[i].id = i;
+            accordion = accordions[i];
+            accordions[i] = temp;
+            accordions[i].id = i;
             temp = accordion;
         }
-    }
 
+    }
+    addToDocument(accordions);
+    saveAccordionsToLocalStorage(accordions);
+}
+function addToDocument(accordions){
     let accordionBlock = document.getElementById("accordion-block");
     accordionBlock.innerHTML = "";
 
-    for (let i = 0; i < accordions.accordion.length; i++) {
+    for (let i = 0; i < accordions.length; i++) {
         let button = document.createElement("button");
         button.setAttribute("class", "accordion")
-        button.textContent = accordions.accordion[i].id + 1 + ". " + accordions.accordion[i].header;
+        button.textContent = accordions[i].id + 1 + ". " + accordions[i].header;
         accordionBlock.appendChild(button);
 
         let div = document.createElement("div");
         div.setAttribute("class", "panel");
 
         let p = document.createElement("p");
-        p.textContent = accordions.accordion[i].content;
+        p.textContent = accordions[i].content;
 
         div.appendChild(p);
         accordionBlock.appendChild(div);
     }
     addListenersToAccordions();
-
 }
 
-function saveAccordionsToJsonFile(accordions){
-    var json = JSON.stringify(accordions);
+function saveAccordionsToLocalStorage(accordions){
+    for (let i = 0; i < accordions.length; i++){
+        localStorage.setItem("accordions" , JSON.stringify(accordions))
+    }
+}
+function loadAccordions(){
+    let accords = JSON.parse(localStorage.getItem("accordions"));
+    if (accords == null){
+        accords = [];
+        let accBlock = document.getElementById("accordion-block");
+        let id = 0;
+        let i = 0;
+        let header;
+        let content;
+        for (const child of accBlock.children) {
+            if (i % 2 != 1){
+                header = child.textContent;
+            } else {
+                content = child.textContent;
+            }
+            i++;
+            if (i > 0 && i % 2 == 1){
+                accords[id] = {id, header, content}
+                id++;
+            }
 
+        }
+    }
+   return accords;
 }
