@@ -108,6 +108,9 @@
 
     #table2-box {
         display: block;
+        width: 60%;
+        padding: 10px;
+        margin: 5px;
     }
 
     #footer-text {
