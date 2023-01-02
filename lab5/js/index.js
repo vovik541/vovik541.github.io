@@ -2,10 +2,12 @@ function runTable(tableName, disableText) {
     document.getElementById(disableText).style = "display: none;";
     document.getElementById(tableName + "-box").style = "display: block;"
 }
-function stopTable(tableName, disabledText){
+
+function stopTable(tableName, disabledText) {
     document.getElementById(disabledText).style = "display: block;";
     document.getElementById(tableName + "-box").style = "display: none;"
 }
+
 function inputNewCell(tableName) {
     recreateTableWithNewCell(tableName);
     loadTableInsides(tableName);
@@ -122,6 +124,7 @@ function selectEvent() {
 window.onload = (event) => {
     // localStorage.setItem("table1Size", 2);
     recreateTable("table1");
+    recreateTable("table2");
 
     let sixthBoxColor = localStorage.getItem("6boxColor");
     if (sixthBoxColor) {

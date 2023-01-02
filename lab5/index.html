@@ -12,23 +12,24 @@
 <body>
 
 <div class="container">
-    <div class="header-row" onmouseover="runTable(`table1`, `header-text`)" onmouseout="stopTable(`table1`, `header-text`)">
+    <div class="header-row" onmouseover="runTable(`table1`, `header-text`)"
+         onmouseout="stopTable(`table1`, `header-text`)">
         <h1 id="moto-1">MOVE MOUTH ON THIS BLOCK</h1>
 
         <div id="table1-box">
-            <form name="createNewCellForm" id="createNewCellForm" action="javascript:inputNewCell(`table1`)" >
+            <form name="createNewCellForm" id="createNewCellForm" action="javascript:inputNewCell(`table1`)">
                 <label for="numberInput">5. CREATE NEW CELL :</label><br>
-                <input name="Submit"  type="submit" value="Create Cell"/>
+                <input name="Submit" type="submit" value="Create Cell"/>
             </form>
             <div id="table1-block">
 
             </div>
             <form name="saveChangesForm" id="saveChangesForm" action="javascript:saveTable(`table1`)">
                 <label for="numberInput">Save table:</label><br>
-                <input name="Save"  type="submit" value="Save"/>
+                <input name="Save" type="submit" value="Save"/>
             </form>
         </div>
-        <p id="header-text">BLOCK 1 CONTENT  sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+        <p id="header-text">BLOCK 1 CONTENT sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
             invidunt
             ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
             ea
@@ -43,10 +44,11 @@
         <div id="colOne">
             <ul>
                 <li>
-                    <input id="swapBlocks" type="button" value="1. Swap text for block 1 and 6" onclick="swapBlocks();" />
+                    <input id="swapBlocks" type="button" value="1. Swap text for block 1 and 6"
+                           onclick="swapBlocks();"/>
                 </li>
                 <li>
-                    <input type="button" value="2. Count circle square" onclick="countCircleSquare();" />
+                    <input type="button" value="2. Count circle square" onclick="countCircleSquare();"/>
                 </li>
             </ul>
         </div>
@@ -98,10 +100,11 @@
                     <form name="myform" id="formId" action="javascript:handleNumber(numberInput.value)">
                         <label for="numberInput">3. INPUT NUMBER :</label><br>
                         <input type="text" name="numberInput" id="numberInput" maxlength="10">
-                        <input name="Run"  type="submit" value="Run"/>
+                        <input name="Run" type="submit" value="Run"/>
                     </form>
                     <div id="error"></div>
-                    <p id="block5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+                    <p id="block5">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                        tempor invidunt
                         ut labore et
                         dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
                         rebum. Stet
@@ -130,7 +133,21 @@
         </div>
 
     </div>
-    <div class="footer-row">
+    <div class="footer-row" onmouseover="runTable(`table2`, `footer-text`)"
+         onmouseout="stopTable(`table2`, `footer-text`)">
+        <div id="table2-box">
+            <form name="createNewCellForm" id="createNewCellForm2" action="javascript:inputNewCell(`table2`)">
+                <label for="numberInput">5. CREATE NEW CELL :</label><br>
+                <input name="Submit" type="submit" value="Create Cell"/>
+            </form>
+            <div id="table2-block">
+
+            </div>
+            <form name="saveChangesForm" id="saveChangesForm2" action="javascript:saveTable(`table2`)">
+                <label for="numberInput">Save table:</label><br>
+                <input name="Save" type="submit" value="Save"/>
+            </form>
+        </div>
         <p id="footer-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
             invidunt
             ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
@@ -140,7 +157,7 @@
             consetetur sadipscing elitr,
             sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
         </p>
-        <h2 id="moto-2">FlexBox</h2>
+        <h2 id="moto-2">MOVE MOUTH ON THIS BLOCK</h2>
     </div>
 </div>
 </body>

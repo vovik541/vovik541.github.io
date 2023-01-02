@@ -37,7 +37,7 @@
     padding: 8px;
 }
 
-#colorInput{
+#colorInput {
     width: 100px;
     height: 100px;
 }
@@ -123,7 +123,14 @@
     color: red
 }
 
-#table1-box{
+#table1-box {
+    display: none;
+    width: 60%;
+    padding: 10px;
+    margin: 5px;
+}
+
+#table2-box {
     display: none;
     width: 60%;
     padding: 10px;
