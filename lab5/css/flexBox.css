@@ -123,3 +123,10 @@
     color: red
 }
 
+#table1-box{
+    display: none;
+    width: 60%;
+    padding: 10px;
+    margin: 5px;
+}
+

@@ -1,23 +1,118 @@
-// const beforeUnloadListener = (event) => {
-//     event.preventDefault();
-//     alert(document.cookie);
-//     return event.returnValue = "Are you sure you want to exit?";
-// };
-//
-// let numberInput ;
-//
-// window.onload = (event) => {
-//     console.log("page is fully loaded");
-//     numberInput = document.querySelector("#numberInput")
-//
-//     numberInput.addEventListener("input", (event) => {
-//         if (event.target.value !== "") {
-//             addEventListener("beforeunload", beforeUnloadListener, {capture: true});
-//         } else {
-//             removeEventListener("beforeunload", beforeUnloadListener, {capture: true});
-//         }
-//     });
-// };
+function runTable(tableName, disableText) {
+    document.getElementById(disableText).style = "display: none;";
+    document.getElementById(tableName + "-box").style = "display: block;"
+}
+function stopTable(tableName, disabledText){
+    document.getElementById(disabledText).style = "display: block;";
+    document.getElementById(tableName + "-box").style = "display: none;"
+}
+function inputNewCell(tableName) {
+    recreateTableWithNewCell(tableName);
+    loadTableInsides(tableName);
+}
+
+function loadTableInsides(tableName) {
+    let previousTableSize = parseInt(localStorage.getItem(tableName + "Size"));
+    let tableSize
+
+    if (isNaN(previousTableSize)) {
+        tableSize = 0;
+    } else {
+        tableSize = previousTableSize;
+    }
+
+    for (let i = 0; i < tableSize; i++) {
+        let cellInputId = tableName + "-input-" + i;
+        let cellInput = document.getElementById(cellInputId);
+        cellInput.value = localStorage.getItem(cellInputId);
+    }
+}
+
+function saveTable(tableName) {
+    let previousTableSize = parseInt(localStorage.getItem(tableName + "Size"));
+    let tableSize
+
+    if (isNaN(previousTableSize)) {
+        tableSize = 0;
+    } else {
+        tableSize = previousTableSize;
+    }
+
+    for (let i = 0; i < tableSize; i++) {
+        let cellInputId = tableName + "-input-" + i;
+        let cellInput = document.getElementById(cellInputId).value;
+        localStorage.setItem(cellInputId, cellInput);
+    }
+}
+
+function recreateTable(tableName) {
+    let previousTableSize = parseInt(localStorage.getItem(tableName + "Size"));
+    let tableSize
+
+    if (isNaN(previousTableSize)) {
+        tableSize = 0;
+    } else {
+        tableSize = previousTableSize;
+    }
+
+    createTable(tableName, tableSize);
+    loadTableInsides(tableName);
+}
+
+function recreateTableWithNewCell(tableName) {
+    let previousTableSize = parseInt(localStorage.getItem(tableName + "Size"));
+    let tableSize
+
+    if (isNaN(previousTableSize)) {
+        tableSize = 1;
+    } else {
+        tableSize = previousTableSize + 1;
+    }
+
+    localStorage.setItem(tableName + "Size", tableSize);
+
+    createTable(tableName, tableSize);
+}
+
+function createTable(tableName, tableSize) {
+    let tableBlock = document.getElementById(tableName + "-block");
+    tableBlock.innerHTML = '';
+
+    const table = document.createElement("table");
+    table.style.width = '40px';
+    table.style.border = '1px solid black';
+
+    if (tableSize % 2 === 1) {
+        let tableRow = table.insertRow();
+        for (let i = 0; i < tableSize; i++) {
+            createTableCell(tableName, tableRow, i);
+        }
+    } else {
+        let tableRow = table.insertRow();
+        let i = 0;
+
+        for (; i < tableSize / 2; i++) {
+            createTableCell(tableName, tableRow, i);
+        }
+
+        tableRow = table.insertRow();
+        for (; i < tableSize; i++) {
+            createTableCell(tableName, tableRow, i);
+        }
+    }
+    tableBlock.appendChild(table);
+
+}
+
+function createTableCell(tableName, tableRow, i) {
+    let tableCell = tableRow.insertCell();
+    tableCell.id = tableName + "-cell-" + i;
+    let input = document.createElement("input");
+    input.id = tableName + "-input-" + i;
+    input.style = "width:30px;"
+    tableCell.appendChild(input);
+}
+
 function selectEvent() {
     let colorElement = document.getElementById("colorInput");
     document.getElementById("right-subCol").style = "background-color: " + colorElement.value + ";";
@@ -25,9 +120,11 @@ function selectEvent() {
 }
 
 window.onload = (event) => {
+    // localStorage.setItem("table1Size", 2);
+    recreateTable("table1");
 
-    let sixthBoxColor = localStorage.getItem("6boxColor") ;
-    if (sixthBoxColor){
+    let sixthBoxColor = localStorage.getItem("6boxColor");
+    if (sixthBoxColor) {
         document.getElementById("right-subCol").style = "background-color: " + sixthBoxColor + ";";
     }
 
