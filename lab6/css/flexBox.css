@@ -72,35 +72,9 @@
     min-width: 50px;
     float: right;
     width: 51%;
-    height: 800px;
-}
-
-#upper-subCol {
-    padding: 10px 1%;
-    height: 280px;
+    height: 780px;
     background-color: #999999;
-}
-
-.sub-content-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-}
-
-#left-subCol {
-    width: 43%;
-    padding: 0 1%;
-    margin-right: 5%;
-    height: 500px;
-    background-color: #999999;
-}
-
-#right-subCol {
-    height: 500px;
-    background-color: #999999;
-    width: 43%;
-    padding: 0 1%;
+    padding: 10px;
 }
 
 #footer-text {
