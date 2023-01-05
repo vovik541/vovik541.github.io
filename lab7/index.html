@@ -3,13 +3,32 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Lab 3</title>
+    <title>Lab 7</title>
     <link href="css/flexBox.css" rel="stylesheet" type="text/css"/>
     <link href="css/commonStyles.css" rel="stylesheet" type="text/css"/>
     <link href="css/mobile.css" rel="stylesheet" type="text/css"/>
+    <link href="css/game.css" rel="stylesheet" type="text/css"/>
     <script src="./js/index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+<!--<main>-->
+<!--    <section class="animation">-->
+<!--        <button type="button" id="play">Play</button>-->
+<!--        <div class="work">-->
+<!--            <div class="controls">-->
+<!--                <button type="button" id="start" class="start active">Start</button>-->
+<!--                <button type="button" id="close">Close</button>-->
+<!--            </div>-->
+<!--            <canvas id="canvas" width="490" height="445"></canvas>-->
+<!--        </div>-->
+<!--        <div class="info">-->
+<!--            <h2>Info</h2>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--</main>-->
+<script src="./js/canvas.js"></script>
+
 
 <div class="container">
     <div class="header-row">
@@ -28,8 +47,8 @@
     <div class="content-row">
         <div id="colOne">
             <ul>
-                <li class="active"><a href="index.html" accesskey="2" title="">Mobile version</a></li>
-                <li><a href="pages/email.html" accesskey="1" title="">For Email version</a></li>
+                <li class="active"><a href="index.html" accesskey="2" title="">Lab 7</a></li>
+                <li><a href="../email.html" accesskey="1" title="">Back to main menu</a></li>
             </ul>
         </div>
         <div id="colTwo">
@@ -65,15 +84,18 @@
         <div class="line-break"></div>
         <div id="colThree">
             <div id="upper-subCol">
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et
-                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-                    rebum. Stet
-                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-                    amet,
-                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                    aliquyam erat,
-                    sed diam voluptua.</p>
+                <button type="button" id="playCanvas" onclick="playCanvas()">Play Canvas</button>
+                <button type="button" id="play2">Play</button>
+                <div id="work">
+                    <div id="controls">
+                        <button type="button" id="closeCanvas" onclick="closeCanvas()">Close</button>
+                        <button type="button" id="startCanvas" onclick="startCanvas()">Start</button>
+                        <button type="button" id="reloadCanvas" onclick="reloadCanvas()">Reload</button>
+                        <button type="button" id="stopCanvas" onclick="stopCanvas()">Stop</button>
+                        <p id="canvasEventsOutput"></p>
+                    </div>
+                    <canvas id="canvas" width="490" height="445"></canvas>
+                </div>
             </div>
             <div id="sub-content-row">
                 <div id="left-subCol">

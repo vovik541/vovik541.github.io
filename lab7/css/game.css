@@ -1,0 +1,48 @@
+#work {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 17%;
+    background-color: #cccccc;
+    margin: 0 auto;
+
+    width: 65%;
+    height: 75%;
+
+    /* border: 5px solid black; */
+    /*outline: 5px solid black;*/
+
+}
+
+#controls {
+    height: 10%;
+    width: 100%;
+    display: flex;
+
+    /*padding: 12px;*/
+}
+
+#startCanvas, #closeCanvas, #reloadCanvas, #stopCanvas{
+    font-size: 20px;
+    margin-top: 2%;
+    margin-left: 2%;
+    display: none;
+    height: 30px;
+}
+
+#canvas {
+    border: 5px solid blue;
+    height: 90%;
+    width: 100%;
+    /*outline: 5px solid green;*/
+    box-sizing: border-box;
+
+    margin: 0 auto;
+    display: block;
+}
+#reloadCanvas{
+
+}
+#stopCanvas{
+
+}
