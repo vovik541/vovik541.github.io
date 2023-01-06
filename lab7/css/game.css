@@ -8,15 +8,13 @@
 
     width: 65%;
     height: 75%;
-
-    /* border: 5px solid black; */
-    /*outline: 5px solid black;*/
-
 }
 #canvasEventsOutput{
     font-size: 16px;
     width: 60%;
-    padding-left: 45%;
+    margin-right: 18px;
+    margin-left: auto;
+    text-align: right;
 }
 #controls {
     height: 10%;
@@ -38,7 +36,6 @@
     border: 5px solid blue;
     height: 90%;
     width: 100%;
-    /*outline: 5px solid green;*/
     box-sizing: border-box;
 
     margin: 0 auto;
