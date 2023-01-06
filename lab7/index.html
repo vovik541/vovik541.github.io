@@ -70,7 +70,7 @@
         <div id="colThree">
             <div id="upper-subCol">
                 <button type="button" id="playCanvas" onclick="playCanvas()">Play Canvas</button>
-                <button type="button" id="playDefault">Play Default</button>
+                <button type="button" id="playDefault" onclick="playDefault()">Play Default</button>
                 <div id="work">
                     <div id="controls">
                         <button type="button" id="closeCanvas" onclick="closeCanvas()">Close</button>
@@ -80,6 +80,17 @@
                         <p id="canvasEventsOutput"></p>
                     </div>
                     <canvas id="canvas" width="900" height="600"></canvas>
+                </div>
+                <div id="defaultWork">
+                    <div id="defaultControls">
+                        <button type="button" id="defaultCloseCanvas" onclick="closeDefault()">Close</button>
+                        <button type="button" id="defaultStartCanvas" onclick="startDefault()">Start</button>
+                        <button type="button" id="defaultReloadCanvas" onclick="reloadDefault()">Reload</button>
+                        <button type="button" id="defaultStopCanvas" onclick="stopDefault()">Stop</button>
+                        <p id="defaultEventsOutput"></p>
+                    </div>
+                    <div id="defaultField">
+                    </div>
                 </div>
             </div>
             <div id="sub-content-row">
