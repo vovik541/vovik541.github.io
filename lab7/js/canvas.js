@@ -10,7 +10,6 @@ function playCanvas() {
 let img;
 
 function fillCanvasBackground() {
-
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d");
     img = new Image();
@@ -29,9 +28,11 @@ function closeCanvas() {
     hideBlock("reloadCanvas");
     hideBlock("work");
     isStopped = true;
+    printMessageToConsole("");
 }
 
 function reloadCanvas() {
+    printMessageToConsole("Reloaded button pressed");
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d");
     let width = canvas.width;
@@ -44,10 +45,12 @@ function reloadCanvas() {
 }
 
 function stopCanvas() {
+    printMessageToConsole("Stop button pressed");
     isStopped = true;
 }
 
 function startCanvas() {
+    printMessageToConsole("Start button pressed");
     isStopped = false;
     hideBlock("startCanvas");
     displayBlock("stopCanvas");
@@ -94,6 +97,7 @@ function moveCanvas() {
         if (isBottomDirection) {
             if (y >= height - 10) {
                 isBottomDirection = false;
+                printMessageToConsole("Square touched the border");
             } else {
                 y += 3;
                 x -= 2;
@@ -112,10 +116,15 @@ function moveCanvas() {
         }
 
         if (x < 0) {
+            ctx.fillStyle = ctx.createPattern(img, "repeat");
+            ctx.fillRect(x, y, 14, 14);
+
             ctx = null;
             isRunning = false;
             displayBlock("reloadCanvas");
             hideBlock("stopCanvas");
+
+            printMessageToConsole("Square run out of box");
             return;
         }
 
@@ -140,4 +149,9 @@ function hideBlock(blockName) {
     document.getElementById(blockName)
         .style
         .display = "none";
+}
+
+function printMessageToConsole(message){
+    let output = document.getElementById("canvasEventsOutput");
+    output.textContent = message;
 }
