@@ -13,6 +13,7 @@ let height;
 let startingHeight;
 
 function playDefault() {
+    // printMessageToConsole("Work is displayed");
     hideBlock("defaultReload");
     hideBlock("defaultStop");
     displayBlock("defaultWork");
@@ -25,43 +26,53 @@ function playDefault() {
     height = animField.offsetHeight;
     square.style.left = width + "px";
     startingHeight = document.querySelector("#defaultControls").offsetHeight + 5;
-    square.style.top = startingHeight;
+    square.style.top = "";
+    ;
 }
 
 function closeDefault() {
+    printMessageToDefaultConsole("Close button pressed");
     hideBlock("defaultWork");
-    isStopped = true;
+    isDefaultStopped = true;
 }
 
-let isStopped;
+let isDefaultStopped;
+
 function startDefault() {
+    printMessageToDefaultConsole("Start button pressed");
     hideBlock("defaultStart");
     displayBlock("defaultStop");
 
     let fromTop = startingHeight;
     let fromLeft = width;
     let isBottomDirection = true;
-    isStopped = false;
+    isDefaultStopped = false;
 
     let interval = setInterval(
         function () {
             if (isBottomDirection) {
                 if (fromTop > height + startingHeight - 25) {
                     isBottomDirection = false;
+                    printMessageToDefaultConsole("Square touched bottom line");
                 }
                 fromTop += 5;
                 fromLeft -= 3;
             } else {
                 if (fromTop < startingHeight + 5) {
                     isBottomDirection = true;
+                    printMessageToDefaultConsole("Square touched top line");
                 }
                 fromTop -= 5;
                 fromLeft -= 3;
             }
             if (fromLeft < -50) {
                 clearInterval(interval)
+                printMessageToDefaultConsole("Square is out of animation block");
+                hideBlock("defaultStop");
+                displayBlock("defaultReload");
+
             }
-            if (isStopped){
+            if (isDefaultStopped) {
                 clearInterval(interval)
             }
 
@@ -72,6 +83,7 @@ function startDefault() {
 }
 
 function reloadDefault() {
+    printMessageToDefaultConsole("Reload button pressed");
     hideBlock("defaultReload");
     displayBlock("defaultStart");
 
@@ -85,9 +97,10 @@ function reloadDefault() {
 }
 
 function stopDefault() {
+    printMessageToDefaultConsole("Stop button pressed");
     hideBlock("defaultStop");
-    displayBlock("defaultReload");
-    isStopped = true;
+    displayBlock("defaultStart");
+    isDefaultStopped = true;
 }
 
 function displayBlock(blockName) {
@@ -102,7 +115,7 @@ function hideBlock(blockName) {
         .display = "none";
 }
 
-function printMessageToConsole(message) {
+function printMessageToDefaultConsole(message) {
     let output = document.getElementById("defaultEventsOutput");
     output.textContent = message;
 
