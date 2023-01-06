@@ -5,7 +5,6 @@ window.onload = (event) => {
     if (eventsLogs == null) {
         eventsLogs = [];
     }
-
 }
 
 function playCanvas() {
