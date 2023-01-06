@@ -4,36 +4,46 @@ function playCanvas() {
     displayBlock("startCanvas");
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
-    fillCanvasBackground(ctx);
+    fillCanvasBackground();
 }
 
+let img;
 
-function fillCanvasBackground(ctx) {
+function fillCanvasBackground() {
 
-    const img = new Image();
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+    img = new Image();
     img.src = "./images/repeatable.jpg";
+
     img.onload = () => { // Only use the image after it's loaded
         ctx.fillStyle = ctx.createPattern(img, "repeat");
-        ctx.fillRect(0, 0, 600, 600);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "green";
+        ctx.fillRect(canvas.width - 10, 0, 10, 10);
     };
 }
 
 function closeCanvas() {
-    hideBlock("work")
+    hideBlock("startCanvas");
+    hideBlock("reloadCanvas");
+    hideBlock("work");
+    isStopped = true;
 }
 
 function reloadCanvas() {
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d");
     let width = canvas.width;
-    let height = canvas.height;
+    fillCanvasBackground();
+
     ctx.fillStyle = "green";
-    ctx.clearRect(0, 0, width, height);
     ctx.fillRect(width - 10, 0, 10, 10);
     displayBlock("startCanvas");
     hideBlock("reloadCanvas");
 }
-function stopCanvas(){
+
+function stopCanvas() {
     isStopped = true;
 }
 
@@ -41,11 +51,13 @@ function startCanvas() {
     isStopped = false;
     hideBlock("startCanvas");
     displayBlock("stopCanvas");
+    fillCanvasBackground();
     moveCanvas();
 }
 
 let isRunning = false;
 let isStopped = false;
+
 function moveCanvas() {
     let canvas = document.getElementById("canvas");
     let ctx = canvas.getContext("2d");
@@ -56,19 +68,25 @@ function moveCanvas() {
     let y = 0;
     let isBottomDirection = true;
 
-    if(!isRunning){
+    if (!isRunning) {
         isRunning = true;
         ctx.fillStyle = "green";
         ctx.fillRect(x, y, 10, 10);
         requestAnimationFrame(draw);
     }
+
     function draw(timeStamp) {
 
-        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = ctx.createPattern(img, "repeat");
+        if (isBottomDirection) {
+            ctx.fillRect(x, y - 6, 14, 14);
+        } else {
+            ctx.fillRect(x, y + 3, 14, 16);
+        }
         ctx.fillStyle = "green";
         ctx.fillRect(x, y, 10, 10);
 
-        setTimeout(function() {
+        setTimeout(function () {
             // Whatever you want to do after the wait
         }, 500);
 
@@ -85,7 +103,7 @@ function moveCanvas() {
             x -= 2;
         }
 
-        if (isStopped){
+        if (isStopped) {
             ctx = null;
             isRunning = false;
             displayBlock("startCanvas");
@@ -102,6 +120,13 @@ function moveCanvas() {
         }
 
         setTimeout(draw, 16);
+    }
+}
+function clearPrevCanvasStep(x, y) {
+    if (isBottomDirection) {
+        ctx.fillRect(x, y - 6, 14, 14);
+    } else {
+        ctx.fillRect(x, y + 3, 14, 16);
     }
 }
 
