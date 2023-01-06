@@ -1,10 +1,24 @@
+let eventsLogs = [];
+
+window.onload = (event) => {
+    eventsLogs = JSON.parse(localStorage.getItem("eventsLogs"));
+    if (eventsLogs == null) {
+        eventsLogs = [];
+    }
+
+}
+
 function playCanvas() {
     displayBlock("work")
     displayBlock("closeCanvas");
     displayBlock("startCanvas");
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
     fillCanvasBackground();
+
+    eventsLogs[eventsLogs.length] = {
+        message: "WORK displayed",
+        time: getCurrentDayTime()
+    }
+    localStorage.setItem("eventsLogs", JSON.stringify(eventsLogs));
 }
 
 let img;
@@ -29,6 +43,32 @@ function closeCanvas() {
     hideBlock("work");
     isStopped = true;
     printMessageToConsole("");
+
+    eventsLogs[eventsLogs.length] = {
+        message: "WORK stopped displaying",
+        time: getCurrentDayTime()
+    }
+    localStorage.setItem("eventsLogs", JSON.stringify(eventsLogs));
+    printToAfterCloseOutput();
+}
+
+function printToAfterCloseOutput() {
+    eventsLogs = JSON.parse(localStorage.getItem("eventsLogs"));
+    if (eventsLogs == null) {
+        eventsLogs = [];
+    }
+
+    let out = document.getElementById("right-subCol");
+    out.innerHTML = "";
+    let outElement = document.createElement("p");
+    outElement.textContent = "EVENT LOGS:";
+    out.appendChild(outElement);
+
+    for (let i = eventsLogs.length - 1; i > 0; i--) {
+        outElement = document.createElement("p");
+        outElement.textContent = eventsLogs[i].message + " " + eventsLogs[i].time + " ";
+        out.appendChild(outElement);
+    }
 }
 
 function reloadCanvas() {
@@ -131,6 +171,7 @@ function moveCanvas() {
         setTimeout(draw, 16);
     }
 }
+
 function clearPrevCanvasStep(x, y) {
     if (isBottomDirection) {
         ctx.fillRect(x, y - 6, 14, 14);
@@ -151,7 +192,21 @@ function hideBlock(blockName) {
         .display = "none";
 }
 
-function printMessageToConsole(message){
+function printMessageToConsole(message) {
     let output = document.getElementById("canvasEventsOutput");
     output.textContent = message;
+
+    eventsLogs[eventsLogs.length] = {
+        message: message,
+        time: getCurrentDayTime()
+    }
+    localStorage.setItem("eventsLogs", JSON.stringify(eventsLogs));
+}
+
+function getCurrentDayTime() {
+    let today = new Date();
+    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    return date + " " + time;
 }
