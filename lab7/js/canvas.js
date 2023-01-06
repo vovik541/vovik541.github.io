@@ -136,7 +136,7 @@ function moveCanvas() {
         if (isBottomDirection) {
             if (y >= height - 10) {
                 isBottomDirection = false;
-                printMessageToConsole("Square touched the border");
+                printMessageToConsole("Square touched the bottom border");
             } else {
                 y += 3;
                 x -= 2;
@@ -144,7 +144,7 @@ function moveCanvas() {
         } else {
             if (y < 0){
                 isBottomDirection = true;
-                printMessageToConsole("Square touched the border");
+                printMessageToConsole("Square touched the top border");
             } else {
                 y -= 3;
                 x -= 2;
