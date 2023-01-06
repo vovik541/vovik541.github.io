@@ -61,6 +61,10 @@
     margin: 0 auto;
     display: block;
 }
+#defaultAnimationField{
+    background-image: url("../images/repeatable.jpg");
+    background-repeat: repeat;
+}
 
 #defaultAnimationField {
     width: 800px;
