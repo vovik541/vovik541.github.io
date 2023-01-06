@@ -142,8 +142,13 @@ function moveCanvas() {
                 x -= 2;
             }
         } else {
-            y -= 3;
-            x -= 2;
+            if (y < 0){
+                isBottomDirection = true;
+                printMessageToConsole("Square touched the border");
+            } else {
+                y -= 3;
+                x -= 2;
+            }
         }
 
         if (isStopped) {
@@ -156,7 +161,7 @@ function moveCanvas() {
 
         if (x < 0) {
             ctx.fillStyle = ctx.createPattern(img, "repeat");
-            ctx.fillRect(x, y, 14, 14);
+            ctx.fillRect(x, y-4, 20, 20);
 
             ctx = null;
             isRunning = false;
@@ -166,6 +171,7 @@ function moveCanvas() {
             printMessageToConsole("Square run out of box");
             return;
         }
+
 
         setTimeout(draw, 16);
     }

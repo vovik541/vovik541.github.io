@@ -41,3 +41,8 @@
     margin: 0 auto;
     display: block;
 }
+#playCanvas, #playDefault{
+    font-size: 18px;
+    padding: 5px;
+    margin: 5px;
+}
