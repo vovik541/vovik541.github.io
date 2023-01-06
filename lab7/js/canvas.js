@@ -60,7 +60,7 @@ function printToAfterCloseOutput() {
     let out = document.getElementById("right-subCol");
     out.innerHTML = "";
     let outElement = document.createElement("p");
-    outElement.textContent = "EVENT LOGS:";
+    outElement.textContent = "CANVAS EVENT LOGS:";
     out.appendChild(outElement);
 
     for (let i = eventsLogs.length - 1; i > 0; i--) {
@@ -142,7 +142,7 @@ function moveCanvas() {
                 x -= 2;
             }
         } else {
-            if (y < 0){
+            if (y < 0) {
                 isBottomDirection = true;
                 printMessageToConsole("Square touched the top border");
             } else {
@@ -161,7 +161,7 @@ function moveCanvas() {
 
         if (x < 0) {
             ctx.fillStyle = ctx.createPattern(img, "repeat");
-            ctx.fillRect(x, y-4, 20, 20);
+            ctx.fillRect(x, y - 4, 20, 20);
 
             ctx = null;
             isRunning = false;

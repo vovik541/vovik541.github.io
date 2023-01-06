@@ -27,13 +27,14 @@ function playDefault() {
     square.style.left = width + "px";
     startingHeight = document.querySelector("#defaultControls").offsetHeight + 5;
     square.style.top = "";
-    ;
 }
 
 function closeDefault() {
     printMessageToDefaultConsole("Close button pressed");
     hideBlock("defaultWork");
     isDefaultStopped = true;
+    localStorage.setItem("defaultEventsLogs", JSON.stringify(defaultEventsLogs));
+    printToDefaultAfterCloseOutput();
 }
 
 let isDefaultStopped;
@@ -119,7 +120,7 @@ function printMessageToDefaultConsole(message) {
     let output = document.getElementById("defaultEventsOutput");
     output.textContent = message;
 
-    eventsLogs[eventsLogs.length] = {
+    defaultEventsLogs[defaultEventsLogs.length] = {
         message: message,
         time: getCurrentDayTime()
     }
@@ -132,4 +133,23 @@ function getCurrentDayTime() {
     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
     return date + " " + time;
+}
+
+function printToDefaultAfterCloseOutput() {
+    defaultEventsLogs = JSON.parse(localStorage.getItem("defaultEventsLogs"));
+    if (defaultEventsLogs == null) {
+        defaultEventsLogs = [];
+    }
+
+    let out = document.getElementById("right-subCol");
+    out.innerHTML = "";
+    let outElement = document.createElement("p");
+    outElement.textContent = "DEFAULT EVENT LOGS:";
+    out.appendChild(outElement);
+
+    for (let i = eventsLogs.length - 1; i > 0; i--) {
+        outElement = document.createElement("p");
+        outElement.textContent = eventsLogs[i].message + " " + eventsLogs[i].time + " ";
+        out.appendChild(outElement);
+    }
 }
